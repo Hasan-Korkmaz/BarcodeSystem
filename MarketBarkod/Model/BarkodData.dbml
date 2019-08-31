@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BarcodeSystem" Class="BarkodDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=HOMEPC\SQLEXPRESS;Initial Catalog=BarcodeSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="MarketBarkod.Properties.Settings" SettingsPropertyName="BarcodeSystemConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Stock" Member="Stock">
+    <Type Name="Stock">
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Piece" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockEntryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ProductManufacturer" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PurchasePrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Products_Stock" Member="Products" ThisKey="ProductID" OtherKey="ProductID" Type="Products" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sale" Member="Sale">
+    <Type Name="Sale">
+      <Column Name="SaleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SaleDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalDiscount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="PaymentMethodSale" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Sale_OperationProduct" Member="OperationProduct" ThisKey="SaleID" OtherKey="SaleProduct" Type="OperationProduct" />
+      <Association Name="PaymentMethod_Sale" Member="PaymentMethod" ThisKey="PaymentMethodSale" OtherKey="PaymentMethodID" Type="PaymentMethod" IsForeignKey="true" />
+      <Association Name="Customers_Sale" Member="Customers" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RefCustomer" Member="RefCustomer">
+    <Type Name="RefCustomer">
+      <Column Name="RefCustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RefCustomerName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RefCustomerSurname" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="RefCustomer_Customers" Member="Customers" ThisKey="RefCustomerID" OtherKey="CustomerReference" Type="Customers" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProccesList" Member="ProccesList">
+    <Type Name="ProccesList">
+      <Column Name="ProccesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProccesType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="ProccesList_CustomerProcces" Member="CustomerProcces" ThisKey="ProccesID" OtherKey="ProccesType" Type="CustomerProcces" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentMethod" Member="PaymentMethod">
+    <Type Name="PaymentMethod">
+      <Column Name="PaymentMethodID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentMethodName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="PaymentMethod_Sale" Member="Sale" ThisKey="PaymentMethodID" OtherKey="PaymentMethodSale" Type="Sale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OperationProduct" Member="OperationProduct">
+    <Type Name="OperationProduct">
+      <Column Name="OperationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SaleProduct" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductDiscount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Sale_OperationProduct" Member="Sale" ThisKey="SaleProduct" OtherKey="SaleID" Type="Sale" IsForeignKey="true" />
+      <Association Name="Products_OperationProduct" Member="Products" ThisKey="ProductID" OtherKey="ProductID" Type="Products" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customers">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomerSurname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="CustomerTelephone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="CustomerOccupotion" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="CustomerDetails" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="CustomerRegistrationDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomerReference" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerAccount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Customers_Sale" Member="Sale" ThisKey="CustomerID" OtherKey="CustomerID" Type="Sale" />
+      <Association Name="Customers_CustomerProcces" Member="CustomerProcces" ThisKey="CustomerID" OtherKey="CustomerID" Type="CustomerProcces" />
+      <Association Name="RefCustomer_Customers" Member="RefCustomer" ThisKey="CustomerReference" OtherKey="RefCustomerID" Type="RefCustomer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerProcces" Member="CustomerProcces">
+    <Type Name="CustomerProcces">
+      <Column Name="CustomerProccesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProccesType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProccesPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ProccesDate" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Customers_CustomerProcces" Member="Customers" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customers" IsForeignKey="true" />
+      <Association Name="ProccesList_CustomerProcces" Member="ProccesList" ThisKey="ProccesType" OtherKey="ProccesID" Type="ProccesList" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Categories">
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Categories_Products" Member="Products" ThisKey="CategoryID" OtherKey="ProductCategorie" Type="Products" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Products">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductBarcode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ProductCategorie" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductSalePrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ProductDescription" Type="System.String" DbType="NVarChar(400)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProductPiece" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Products_Stock" Member="Stock" ThisKey="ProductID" OtherKey="ProductID" Type="Stock" />
+      <Association Name="Products_OperationProduct" Member="OperationProduct" ThisKey="ProductID" OtherKey="ProductID" Type="OperationProduct" />
+      <Association Name="Categories_Products" Member="Categories" ThisKey="ProductCategorie" OtherKey="CategoryID" Type="Categories" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

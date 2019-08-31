@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DBF0334A-2F09-441D-9518-D6EEBA91C169}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MarketBarkod</RootNamespace>
+    <AssemblyName>MarketBarkod</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomMessage">
+      <HintPath>.\CustomMessage.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomerProcces\CustomerConnectComponent.cs" />
+    <Compile Include="CustomerProcces\CustomerDATA.cs" />
+    <Compile Include="GlobalComponent\GlobalUserComponent.cs" />
+    <Compile Include="GlobalComponent\ProccesTYPE.cs" />
+    <Compile Include="MainStart\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainStart\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainStart\MainPageRouting.cs" />
+    <Compile Include="MarketBarkodKaynakları.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarketBarkodKaynakları.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BarkodData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BarkodData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductProcces\ProductConnectComponent.cs" />
+    <Compile Include="ProductProcces\ProductDATA.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaleProcces\SaleConnectComponent.cs" />
+    <Compile Include="SaleProcces\SaleMainDATA.cs" />
+    <Compile Include="Ui\Customer\CustomerACCOUNT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Customer\CustomerACCOUNT.Designer.cs">
+      <DependentUpon>CustomerACCOUNT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Customer\CustomerADD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Customer\CustomerADD.Designer.cs">
+      <DependentUpon>CustomerADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Customer\CustomerEDIT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Customer\CustomerEDIT.Designer.cs">
+      <DependentUpon>CustomerEDIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Product\ProductADD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Product\ProductADD.Designer.cs">
+      <DependentUpon>ProductADD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Product\ProductEDIT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Product\ProductEDIT.Designer.cs">
+      <DependentUpon>ProductEDIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Sale\Discount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\Sale\Discount.Designer.cs">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Sale\SaleMainPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Sale\SaleMainPage.Designer.cs">
+      <DependentUpon>SaleMainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Sale\SelectCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ui\Sale\SelectCustomer.Designer.cs">
+      <DependentUpon>SelectCustomer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainStart\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MarketBarkodKaynakları.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MarketBarkodKaynakları.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ui\Customer\CustomerACCOUNT.resx">
+      <DependentUpon>CustomerACCOUNT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Customer\CustomerADD.resx">
+      <DependentUpon>CustomerADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Customer\CustomerEDIT.resx">
+      <DependentUpon>CustomerEDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Product\ProductADD.resx">
+      <DependentUpon>ProductADD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Product\ProductEDIT.resx">
+      <DependentUpon>ProductEDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Sale\Discount.resx">
+      <DependentUpon>Discount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Sale\SaleMainPage.resx">
+      <DependentUpon>SaleMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Sale\SelectCustomer.resx">
+      <DependentUpon>SelectCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Model\BarkodData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BarkodData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Model\BarkodData.dbml.layout">
+      <DependentUpon>BarkodData.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ErorIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Increase2Ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IncreaseIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfoIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ListIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money2Ico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MoneyIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OkCheckIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Okico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PasswordIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ritim.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Searchİco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Searchİco2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShutdownICo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TrashIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpdateIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VisaIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WalletIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddIco.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddUSerICo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BookICo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BuyIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClothesIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CoinIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomerIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatabaseAddIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Databaseİco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
