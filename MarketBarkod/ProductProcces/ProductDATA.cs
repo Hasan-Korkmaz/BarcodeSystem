@@ -135,23 +135,29 @@ namespace MarketBarkod.ProductProcces
             if (!(UrunAra(Barkod) == null))
             {
                 return -2;
-
-
             }
-
-            //Ürün Veritabanında yok ekle   
-            proc = new Products()
+            try
             {
-                ProductBarcode = Barkod,
-                ProductName = name,
-                ProductCategorie = kategoriIDs,
-                ProductDescription = descriptioni,
-                ProductSalePrice = satisfiyat,
-                isActive = false
-            };
-            Erisim.Products.InsertOnSubmit(proc);
-            Erisim.SubmitChanges();
-            return 1;
+                proc = new Products()
+                {
+                    ProductBarcode = Barkod,
+                    ProductName = name,
+                    ProductCategorie = kategoriIDs,
+                    ProductDescription = descriptioni,
+                    ProductSalePrice = satisfiyat,
+                    isActive = false
+                };
+                Erisim.Products.InsertOnSubmit(proc);
+                Erisim.SubmitChanges();
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                return -1;
+            }
+            //Ürün Veritabanında yok ekle   
+           
         }
         public int UrunDuzenle(string Barkod, string name, int kategoriIDs, string descriptioni, decimal satisfiyat)
         {
@@ -200,6 +206,36 @@ namespace MarketBarkod.ProductProcces
         public IEnumerable<Categories> KategoriListesi()
         {
             return Erisim.Categories;
+        }
+        
+        public int StokGiris(string Barkod, int miktar, string manufacturer, decimal adetFiyat )
+        {
+            if (!(UrunAra(Barkod)==null))
+            {
+                return -2;
+            }
+            else
+            {
+                try
+                {
+                    Stock stc = new Stock();
+                    proc= UrunAra(Barkod);
+                    proc.ProductPiece += miktar;
+                    stc.ProductID = proc.ProductID;
+                    stc.Piece = miktar;
+                    stc.ProductManufacturer = manufacturer;
+                    stc.PurchasePrice = adetFiyat;
+                    Erisim.Stock.InsertOnSubmit(stc);
+                    Erisim.SubmitChanges();
+                    return 1;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            }
         }
     }
 }

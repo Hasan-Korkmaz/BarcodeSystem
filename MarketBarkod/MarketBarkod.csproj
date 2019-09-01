@@ -133,6 +133,12 @@
     <Compile Include="Ui\Product\ProductEDIT.Designer.cs">
       <DependentUpon>ProductEDIT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Product\StockADD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Product\StockADD.Designer.cs">
+      <DependentUpon>StockADD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Report\CustomerAccountProcces.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Product\ProductEDIT.resx">
       <DependentUpon>ProductEDIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Product\StockADD.resx">
+      <DependentUpon>StockADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Report\CustomerAccountProcces.resx">
       <DependentUpon>CustomerAccountProcces.cs</DependentUpon>
@@ -364,14 +373,14 @@
     <Folder Include="KaydedilenRaporlar\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DATA\BarcodeSystem.mdf">
+    <EmbeddedResource Include="DATA\BarcodeSystem.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <Content Include="DATA\BarcodeSystemScript.sql" />
-    <Content Include="DATA\BarcodeSystem_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <EmbeddedResource Include="DATA\BarcodeSystem_log.ldf">
       <DependentUpon>BarcodeSystem.mdf</DependentUpon>
-    </Content>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="DATA\TriggerQuery.sql" />
     <Content Include="GlobalComponent\CustomFont\OFL.txt" />
   </ItemGroup>

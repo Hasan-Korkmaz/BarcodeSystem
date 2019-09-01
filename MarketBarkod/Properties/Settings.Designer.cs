@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Windows.Forms;
+
 namespace MarketBarkod.Properties {
     
     
@@ -33,7 +35,7 @@ namespace MarketBarkod.Properties {
                 return ((string)(this["BarcodeSystemConnectionString"]));
             }
         }
-        
+      
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
@@ -42,6 +44,18 @@ namespace MarketBarkod.Properties {
         public string Local {
             get {
                 return ((string)(this["Local"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public string ayar {
+            get {
+                return ((string)(this["ayar"]));
+            }
+            set {
+                this["ayar"] = value;
             }
         }
     }

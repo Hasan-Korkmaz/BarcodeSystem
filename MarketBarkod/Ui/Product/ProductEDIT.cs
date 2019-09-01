@@ -53,8 +53,15 @@ namespace MarketBarkod.Ui.Product
                 {
                     txtSearchBarkod.Text = txtSearchBarkod.Text.TrimEnd(charsToTrim);
                     datagridview1.DataSource = PCC.BarkodaGoreUrunListele(txtSearchBarkod);
-                    
-                    
+                    if (datagridview1.RowCount ==1)
+                    {
+                        selectedproductBarkod = datagridview1.Rows[0].Cells["ProductBarcode"].Value.ToString();
+                        txtProductBarcode.Text = datagridview1.Rows[0].Cells["ProductBarcode"].Value.ToString();
+                        txtProductName.Text = datagridview1.Rows[0].Cells["ProductName"].Value.ToString();
+                        NumericSatisFiyat.Value = Convert.ToDecimal(datagridview1.Rows[0].Cells["ProductSalePrice"].Value);
+                        rctxtProductDetails.Text = datagridview1.Rows[0].Cells["ProductDescription"].Value.ToString();
+                        cmbProductCategory.SelectedValue = (int)datagridview1.Rows[0].Cells["CategoryID"].Value;
+                    }
                 }
                 
             }

@@ -199,5 +199,37 @@ namespace MarketBarkod.ProductProcces
 
             return DGV;
         }
+
+        public int StockEntry(TextBox Barkod, TextBox mikt, RichTextBox rc, NumericUpDown num)
+        {
+            if (String.IsNullOrEmpty(Barkod.Text) || String.IsNullOrEmpty(mikt.Text) || String.IsNullOrEmpty(rc.Text) || String.IsNullOrEmpty(num.Value.ToString()))
+            {
+                //Null Değer Döndü
+                CustomMsg.Message("Boş girilen değerler var.\nLütfen gereken bilgileri yeniden doldurup deneyiniz.", "Null Reference", CustomMsg.MessageIcon.Eror, CustomMsg.MessageButton.OK);
+                return -1;
+            }
+            else
+            {
+                int state;
+                state = prc.StokGiris(Barkod.Text, Convert.ToInt32(mikt.Text), rc.Text, num.Value);
+                if (state==1)
+                {
+                    CustomMsg.Message("Stoğa giriş başarılı bir şekilde tamamlandı.", "StockOK", CustomMsg.MessageIcon.OK, CustomMsg.MessageButton.OK);
+                    return 1;
+
+                }
+                else if (state==-2)
+                {
+                    CustomMsg.Message("Bu Barkod Tanımlanmamıştır.\nLütfen Ürün Ekle Kısmından ekleyin daha sonra stok girişi yapın", "Ürün YOK", CustomMsg.MessageIcon.Eror, CustomMsg.MessageButton.OK);
+                    return -1;
+
+                }
+                else 
+                {
+                    CustomMsg.Message("Veritabanı Hatası Oluştu", "DB Error", CustomMsg.MessageIcon.Eror, CustomMsg.MessageButton.OK);
+                    return -1;
+                }
+            }
+        }
     }
 }

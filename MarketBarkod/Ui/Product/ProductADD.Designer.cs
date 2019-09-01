@@ -67,7 +67,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(322, 309);
+            this.groupBox1.Size = new System.Drawing.Size(322, 305);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yeni Ürün";
@@ -75,7 +75,7 @@
             // NumericSatisFiyat
             // 
             this.NumericSatisFiyat.DecimalPlaces = 2;
-            this.NumericSatisFiyat.Location = new System.Drawing.Point(110, 112);
+            this.NumericSatisFiyat.Location = new System.Drawing.Point(110, 143);
             this.NumericSatisFiyat.Maximum = new decimal(new int[] {
             50000,
             0,
@@ -89,19 +89,20 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(158, 259);
+            this.button1.Location = new System.Drawing.Point(158, 255);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 41);
             this.button1.TabIndex = 7;
             this.button1.Text = "Stoğa Ürün Ekle";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(288, 111);
+            this.label6.Location = new System.Drawing.Point(288, 142);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 22);
@@ -112,7 +113,7 @@
             // 
             this.cmbProductCategory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbProductCategory.FormattingEnabled = true;
-            this.cmbProductCategory.Location = new System.Drawing.Point(110, 80);
+            this.cmbProductCategory.Location = new System.Drawing.Point(110, 111);
             this.cmbProductCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProductCategory.Name = "cmbProductCategory";
             this.cmbProductCategory.Size = new System.Drawing.Size(206, 29);
@@ -125,7 +126,7 @@
             this.txtProductName.Margin = new System.Windows.Forms.Padding(2);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(206, 26);
+            this.txtProductName.Size = new System.Drawing.Size(206, 56);
             this.txtProductName.TabIndex = 1;
             // 
             // txtProductBarcode
@@ -142,7 +143,7 @@
             // btnProductADD
             // 
             this.btnProductADD.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnProductADD.Location = new System.Drawing.Point(9, 259);
+            this.btnProductADD.Location = new System.Drawing.Point(9, 255);
             this.btnProductADD.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductADD.Name = "btnProductADD";
             this.btnProductADD.Size = new System.Drawing.Size(145, 41);
@@ -154,7 +155,7 @@
             // rctxtProductDetails
             // 
             this.rctxtProductDetails.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.rctxtProductDetails.Location = new System.Drawing.Point(110, 141);
+            this.rctxtProductDetails.Location = new System.Drawing.Point(110, 172);
             this.rctxtProductDetails.Margin = new System.Windows.Forms.Padding(2);
             this.rctxtProductDetails.Name = "rctxtProductDetails";
             this.rctxtProductDetails.Size = new System.Drawing.Size(205, 79);
@@ -165,7 +166,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(3, 171);
+            this.label12.Location = new System.Drawing.Point(3, 202);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(109, 21);
@@ -176,7 +177,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(3, 114);
+            this.label4.Location = new System.Drawing.Point(3, 145);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 21);
@@ -187,7 +188,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(5, 84);
+            this.label3.Location = new System.Drawing.Point(5, 115);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 21);
@@ -198,7 +199,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(5, 54);
+            this.label2.Location = new System.Drawing.Point(5, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 21);
@@ -222,7 +223,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "ProductADD";
-            this.Size = new System.Drawing.Size(329, 315);
+            this.Size = new System.Drawing.Size(334, 313);
+            this.Load += new System.EventHandler(this.ProductADD_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericSatisFiyat)).EndInit();

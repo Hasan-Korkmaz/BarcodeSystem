@@ -41,8 +41,6 @@
             this.btnProductADD = new System.Windows.Forms.Button();
             this.btnCustomerADD = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -55,9 +53,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
-            this.pnlContainer.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel1.SuspendLayout();
@@ -271,9 +267,6 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
-            this.pnlContainer.Controls.Add(this.textBox1);
-            this.pnlContainer.Controls.Add(this.button2);
-            this.pnlContainer.Controls.Add(this.button1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(213, 37);
             this.pnlContainer.Margin = new System.Windows.Forms.Padding(2);
@@ -281,27 +274,6 @@
             this.pnlContainer.Size = new System.Drawing.Size(1056, 563);
             this.pnlContainer.TabIndex = 7;
             this.pnlContainer.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.PnlContainer_PreviewKeyDown);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(491, 270);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
-            this.button2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Button2_PreviewKeyDown);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(376, 177);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // panel3
             // 
@@ -451,13 +423,6 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(258, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(690, 20);
-            this.textBox1.TabIndex = 2;
-            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -473,8 +438,6 @@
             this.Text = "MainPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel4.ResumeLayout(false);
-            this.pnlContainer.ResumeLayout(false);
-            this.pnlContainer.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -518,9 +481,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
     }
 
 

@@ -20,9 +20,9 @@ namespace MarketBarkod.Model
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	
-	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BarcodeSystem")]
+    using System.Windows.Forms;
+
+    [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BarcodeSystem")]
 	public partial class BarkodDataDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -60,10 +60,11 @@ namespace MarketBarkod.Model
     partial void InsertProducts(Products instance);
     partial void UpdateProducts(Products instance);
     partial void DeleteProducts(Products instance);
-    #endregion
-		
-		public BarkodDataDataContext() : 
-				base(global::MarketBarkod.Properties.Settings.Default.Local, mappingSource)
+        #endregion
+        static string localpath = Application.StartupPath + "..\\..\\..\\..\\BarcodeSystem.mdf";
+        static string constring = "Data Source=.; Integrated Security=true; AttachDbFileName=" + localpath;
+        public BarkodDataDataContext() : base(constring, mappingSource)/*
+				base("Data Source=.; Integrated Security=true; AttachDbFileName=C:\\BarcodeSystem\\BarcodeSystem.mdf", mappingSource)*/
 		{
 			OnCreated();
 		}

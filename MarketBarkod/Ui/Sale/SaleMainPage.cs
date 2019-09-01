@@ -51,6 +51,7 @@ namespace MarketBarkod.Ui.Sale
             {
                 button10.BackColor = Color.Red;
             }
+           
             txtBarcodeSearch.Focus();
         }
 
@@ -134,7 +135,29 @@ namespace MarketBarkod.Ui.Sale
 
         private void TxtBarcodeSearch_KeyDown(object sender, KeyEventArgs e)
         {
-          
+            if (e.KeyCode.ToString()=="F1")
+            {
+                btnKredi.PerformClick();
+
+            }
+            else if (e.KeyCode.ToString()=="F2")
+            {
+                btnNakit.PerformClick();
+            }
+            else if (e.KeyCode.ToString()=="F3")
+            {
+                registeredCustomer.PerformClick();
+            }
+        }
+
+        private void SaleMainPage_Load(object sender, EventArgs e)
+        {
+            txtBarcodeSearch.Focus();
+        }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            txtBarcodeSearch.Focus();
         }
     }
 }

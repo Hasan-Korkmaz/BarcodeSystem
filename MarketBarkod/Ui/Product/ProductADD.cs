@@ -36,6 +36,14 @@ namespace MarketBarkod.Ui.Product
             }
         }
 
-        
+        private void ProductADD_Load(object sender, EventArgs e)
+        {
+            txtProductBarcode.Focus();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            MainStart.MainPageRouting.AddPage(new StockADD());
+        }
     }
 }

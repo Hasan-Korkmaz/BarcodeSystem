@@ -18,7 +18,7 @@ namespace MarketBarkod
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Startup());
+            Application.Run(new Form1());
         }
 
         public static Form Startup()

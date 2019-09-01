@@ -17,5 +17,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=.; Integrated Security=true; AttachDbFileName=C:\BarcodeSystem\BarcodeSystem.mdf</Value>
     </Setting>
+    <Setting Name="ayar" Type="System.String" Scope="User">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
