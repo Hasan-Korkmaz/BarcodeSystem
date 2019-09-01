@@ -33,5 +33,16 @@ namespace MarketBarkod.Properties {
                 return ((string)(this["BarcodeSystemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.; Integrated Security=true; AttachDbFileName=C:\\BarcodeSystem\\Barcod" +
+            "eSystem.mdf")]
+        public string Local {
+            get {
+                return ((string)(this["Local"]));
+            }
+        }
     }
 }

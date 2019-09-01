@@ -29,6 +29,7 @@ namespace MarketBarkod.Ui.Product
             datagridview1.Columns["ProductID"].Visible = false;
             datagridview1.Columns["CategoryID"].Visible = false;
             datagridview1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            txtSearchBarkod.Focus();
         }
 
         private void BtnProductEDIT_Click(object sender, EventArgs e)
@@ -37,9 +38,9 @@ namespace MarketBarkod.Ui.Product
             PCC.DataGridViewGenelUrunListesi(datagridview1);
             datagridview1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
-
+        char[] charsToTrim = { '\n', '\r' };
         private void FindProduct(object sender, EventArgs e)
-        {
+       {
             if ((String.IsNullOrEmpty(txtSearchBarkod.Text) && String.IsNullOrEmpty(txtSearchName.Text)))
             {
                 this.datagridview1 = PCC.DataGridViewGenelUrunListesi(datagridview1);
@@ -47,7 +48,15 @@ namespace MarketBarkod.Ui.Product
             //Barkod Var İsim Yok ise
             else if (!String.IsNullOrEmpty(txtSearchBarkod.Text) && String.IsNullOrEmpty(txtSearchName.Text))
             {
-                datagridview1.DataSource = PCC.BarkodaGoreUrunListele(txtSearchBarkod);
+               
+                if (txtSearchBarkod.Text.Contains('\n') || txtSearchBarkod.Text.Contains('\r'))
+                {
+                    txtSearchBarkod.Text = txtSearchBarkod.Text.TrimEnd(charsToTrim);
+                    datagridview1.DataSource = PCC.BarkodaGoreUrunListele(txtSearchBarkod);
+                    
+                    
+                }
+                
             }
             //İsim Var Barkod Yok ise
             else if (String.IsNullOrEmpty(txtSearchBarkod.Text) && !String.IsNullOrEmpty(txtSearchName.Text))
@@ -77,6 +86,10 @@ namespace MarketBarkod.Ui.Product
             PCC.UrunSil(datagridview1.CurrentRow.Cells["ProductBarcode"].Value.ToString());
             PCC.DataGridViewGenelUrunListesi(datagridview1);
             datagridview1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+        private void ProductEDIT_Load(object sender, EventArgs e)
+        {
+            txtSearchBarkod.Focus();
         }
     }
 }

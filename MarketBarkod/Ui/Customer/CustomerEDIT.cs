@@ -29,7 +29,9 @@ namespace MarketBarkod.Ui.Customer
             datagridview1.Columns["RefCustomerName"].HeaderText = "Referansının Adi";
             datagridview1.Columns["RefCustomerSurname"].HeaderText = "Referansının Soyadi";
             datagridview1.Columns["CustomerID"].Visible = false;
-           
+            datagridview1.Columns["CustomerReference"].Visible = false;
+            datagridview1.Columns["RefCustomerID"].Visible = false;
+
 
             datagridview1.Columns["CustomerReference"].Visible = false;
         }

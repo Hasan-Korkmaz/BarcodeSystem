@@ -41,6 +41,8 @@
             this.btnProductADD = new System.Windows.Forms.Button();
             this.btnCustomerADD = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -53,7 +55,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
+            this.pnlContainer.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel1.SuspendLayout();
@@ -143,7 +147,7 @@
             this.btnCustomerEDIT.Location = new System.Drawing.Point(63, 159);
             this.btnCustomerEDIT.Margin = new System.Windows.Forms.Padding(2);
             this.btnCustomerEDIT.Name = "btnCustomerEDIT";
-            this.btnCustomerEDIT.Size = new System.Drawing.Size(153, 28);
+            this.btnCustomerEDIT.Size = new System.Drawing.Size(146, 28);
             this.btnCustomerEDIT.TabIndex = 20;
             this.btnCustomerEDIT.Text = "Müsteri Düzenle";
             this.btnCustomerEDIT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,11 +164,12 @@
             this.btnReport.Location = new System.Drawing.Point(63, 411);
             this.btnReport.Margin = new System.Windows.Forms.Padding(2);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(153, 28);
+            this.btnReport.Size = new System.Drawing.Size(146, 28);
             this.btnReport.TabIndex = 12;
             this.btnReport.Text = "Raporlar";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.BtnReport_Click);
             // 
             // label7
             // 
@@ -188,7 +193,7 @@
             this.btnSale.Location = new System.Drawing.Point(63, 361);
             this.btnSale.Margin = new System.Windows.Forms.Padding(2);
             this.btnSale.Name = "btnSale";
-            this.btnSale.Size = new System.Drawing.Size(153, 28);
+            this.btnSale.Size = new System.Drawing.Size(146, 28);
             this.btnSale.TabIndex = 11;
             this.btnSale.Text = "Satış";
             this.btnSale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -205,7 +210,7 @@
             this.btnAccount.Location = new System.Drawing.Point(63, 310);
             this.btnAccount.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(153, 28);
+            this.btnAccount.Size = new System.Drawing.Size(146, 28);
             this.btnAccount.TabIndex = 10;
             this.btnAccount.Text = "Veresiye ";
             this.btnAccount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,7 +227,7 @@
             this.btnProductEDIT.Location = new System.Drawing.Point(63, 260);
             this.btnProductEDIT.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductEDIT.Name = "btnProductEDIT";
-            this.btnProductEDIT.Size = new System.Drawing.Size(153, 28);
+            this.btnProductEDIT.Size = new System.Drawing.Size(146, 28);
             this.btnProductEDIT.TabIndex = 9;
             this.btnProductEDIT.Text = "Ürünleri Düzenle";
             this.btnProductEDIT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,7 +244,7 @@
             this.btnProductADD.Location = new System.Drawing.Point(63, 210);
             this.btnProductADD.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductADD.Name = "btnProductADD";
-            this.btnProductADD.Size = new System.Drawing.Size(153, 28);
+            this.btnProductADD.Size = new System.Drawing.Size(146, 28);
             this.btnProductADD.TabIndex = 8;
             this.btnProductADD.Text = "Yeni Ürün Ekle";
             this.btnProductADD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -256,7 +261,7 @@
             this.btnCustomerADD.Location = new System.Drawing.Point(63, 109);
             this.btnCustomerADD.Margin = new System.Windows.Forms.Padding(2);
             this.btnCustomerADD.Name = "btnCustomerADD";
-            this.btnCustomerADD.Size = new System.Drawing.Size(153, 28);
+            this.btnCustomerADD.Size = new System.Drawing.Size(146, 28);
             this.btnCustomerADD.TabIndex = 7;
             this.btnCustomerADD.Text = "Müsteri Ekle";
             this.btnCustomerADD.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -266,12 +271,37 @@
             // pnlContainer
             // 
             this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(63)))), ((int)(((byte)(70)))));
+            this.pnlContainer.Controls.Add(this.textBox1);
+            this.pnlContainer.Controls.Add(this.button2);
+            this.pnlContainer.Controls.Add(this.button1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(213, 37);
             this.pnlContainer.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.Size = new System.Drawing.Size(1056, 563);
             this.pnlContainer.TabIndex = 7;
+            this.pnlContainer.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.PnlContainer_PreviewKeyDown);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(491, 270);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Button2_PreviewKeyDown);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(376, 177);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // panel3
             // 
@@ -412,7 +442,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MarketBarkod.MarketBarkodKaynakları.AddIco;
+            this.pictureBox2.Image = global::MarketBarkod.MarketBarkodKaynakları.AddIco1;
             this.pictureBox2.Location = new System.Drawing.Point(9, 203);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
@@ -420,6 +450,13 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(258, 75);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(690, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // MainPage
             // 
@@ -434,7 +471,10 @@
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainPage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel4.ResumeLayout(false);
+            this.pnlContainer.ResumeLayout(false);
+            this.pnlContainer.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -478,6 +518,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 
 

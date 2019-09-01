@@ -28,6 +28,7 @@ namespace MarketBarkod
             return mainPage;
 
         }
+        
         //TODO: VERİTABANIU BACKUPI ALINACAK
         /*
         static void dbAtach()

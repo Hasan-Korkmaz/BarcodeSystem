@@ -28,10 +28,11 @@ namespace MarketBarkod.Ui.Sale
             customerDataGridView.Columns["CustomerAddress"].HeaderText = "Adres";
             customerDataGridView.Columns["CustomerOccupotion"].HeaderText = "Meslek";
             customerDataGridView.Columns["CustomerRegistrationDate"].HeaderText = "KayıtTarihi";
-            customerDataGridView.Columns["RefUserName"].HeaderText = "Referansının Adi";
-            customerDataGridView.Columns["RefUserSurname"].HeaderText = "Referansının Soyadi";
+            customerDataGridView.Columns["RefCustomerName"].HeaderText = "Referansının Adi";
+            customerDataGridView.Columns["RefCustomerSurname"].HeaderText = "Referansının Soyadi";
             customerDataGridView.Columns["CustomerID"].Visible = false;
             customerDataGridView.Columns["CustomerReference"].Visible = false;
+            customerDataGridView.Columns["RefCustomerID"].Visible = false;
         }
         public static int? Show()
         {

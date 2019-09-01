@@ -10,5 +10,12 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=HOMEPC\SQLEXPRESS;Initial Catalog=BarcodeSystem;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False</Value>
     </Setting>
+    <Setting Name="Local" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=.; Integrated Security=true; AttachDbFileName=C:\BarcodeSystem\BarcodeSystem.mdf&lt;/ConnectionString&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=.; Integrated Security=true; AttachDbFileName=C:\BarcodeSystem\BarcodeSystem.mdf</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

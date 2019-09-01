@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,6 +51,9 @@
     <Reference Include="CustomMessage">
       <HintPath>.\CustomMessage.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -52,8 +70,15 @@
   <ItemGroup>
     <Compile Include="CustomerProcces\CustomerConnectComponent.cs" />
     <Compile Include="CustomerProcces\CustomerDATA.cs" />
+    <Compile Include="GlobalComponent\CustomFont\TitiliumFastFont.cs" />
     <Compile Include="GlobalComponent\GlobalUserComponent.cs" />
     <Compile Include="GlobalComponent\ProccesTYPE.cs" />
+    <Compile Include="MainStart\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainStart\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainStart\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +100,7 @@
     <Compile Include="ProductProcces\ProductDATA.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\ReportSource.cs" />
     <Compile Include="SaleProcces\SaleConnectComponent.cs" />
     <Compile Include="SaleProcces\SaleMainDATA.cs" />
     <Compile Include="Ui\Customer\CustomerACCOUNT.cs">
@@ -107,6 +133,30 @@
     <Compile Include="Ui\Product\ProductEDIT.Designer.cs">
       <DependentUpon>ProductEDIT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Report\CustomerAccountProcces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Report\CustomerAccountProcces.Designer.cs">
+      <DependentUpon>CustomerAccountProcces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Report\CustomerBuyProcces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Report\CustomerBuyProcces.Designer.cs">
+      <DependentUpon>CustomerBuyProcces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Report\ReportCustomerProcces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Report\ReportCustomerProcces.Designer.cs">
+      <DependentUpon>ReportCustomerProcces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Report\ReportMainPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Report\ReportMainPage.Designer.cs">
+      <DependentUpon>ReportMainPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Sale\Discount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +175,9 @@
     <Compile Include="Ui\Sale\SelectCustomer.Designer.cs">
       <DependentUpon>SelectCustomer.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MainStart\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainStart\MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +193,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Ui\Customer\CustomerACCOUNT.resx">
       <DependentUpon>CustomerACCOUNT.cs</DependentUpon>
@@ -156,6 +210,18 @@
     <EmbeddedResource Include="Ui\Product\ProductEDIT.resx">
       <DependentUpon>ProductEDIT.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Report\CustomerAccountProcces.resx">
+      <DependentUpon>CustomerAccountProcces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Report\CustomerBuyProcces.resx">
+      <DependentUpon>CustomerBuyProcces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Report\ReportCustomerProcces.resx">
+      <DependentUpon>ReportCustomerProcces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Report\ReportMainPage.resx">
+      <DependentUpon>ReportMainPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ui\Sale\Discount.resx">
       <DependentUpon>Discount.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +231,17 @@
     <EmbeddedResource Include="Ui\Sale\SelectCustomer.resx">
       <DependentUpon>SelectCustomer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-Black.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-Bold.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-BoldItalic.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-ExtraLight.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-ExtraLightItalic.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-Light.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-LightItalic.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-Regular.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-RegularItalic.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-SemiBold.ttf" />
+    <None Include="GlobalComponent\CustomFont\TitilliumWeb-SemiBoldItalic.ttf" />
     <None Include="Model\BarkodData.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BarkodData.designer.cs</LastGenOutput>
@@ -173,6 +250,7 @@
     <None Include="Model\BarkodData.dbml.layout">
       <DependentUpon>BarkodData.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -281,6 +359,33 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="KaydedilenRaporlar\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DATA\BarcodeSystem.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DATA\BarcodeSystemScript.sql" />
+    <Content Include="DATA\BarcodeSystem_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>BarcodeSystem.mdf</DependentUpon>
+    </Content>
+    <Content Include="DATA\TriggerQuery.sql" />
+    <Content Include="GlobalComponent\CustomFont\OFL.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

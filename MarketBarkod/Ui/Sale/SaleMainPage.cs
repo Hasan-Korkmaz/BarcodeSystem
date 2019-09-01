@@ -28,13 +28,18 @@ namespace MarketBarkod.Ui.Sale
         SaleProcces.SaleConnectComponent SCC = new SaleProcces.SaleConnectComponent();
         string selectedProductID;
         int state = 0;
+        char[] charsToTrim = { '\n', '\r' };
         private void TxtBarcodeSearch_TextChanged(object sender, EventArgs e)
         {
-            if (txtBarcodeSearch.Text.Length == 9)
+            
+            if (txtBarcodeSearch.Text.Contains('\n') || txtBarcodeSearch.Text.Contains('\r'))
             {
+                txtBarcodeSearch.Text = txtBarcodeSearch.Text.TrimEnd(charsToTrim);
+                state = SCC.DataGridvieweEkle(dataGridView1, txtBarcodeSearch);
                 txtBarcodeSearch.Clear();
+
             }
-            state = SCC.DataGridvieweEkle(dataGridView1, txtBarcodeSearch);
+            
             if (state == 1)
             {
                 button10.BackColor = Color.Green;
@@ -120,6 +125,16 @@ namespace MarketBarkod.Ui.Sale
         {
             SCC.SaleProccesFinish(sender, dataGridView1);
             txtBarcodeSearch.Focus();
+        }
+
+        private void SaleMainPage_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            MessageBox.Show("Test");
+        }
+
+        private void TxtBarcodeSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+          
         }
     }
 }

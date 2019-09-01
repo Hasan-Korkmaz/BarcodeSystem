@@ -155,6 +155,7 @@
             this.txtBarcodeSearch.Size = new System.Drawing.Size(183, 26);
             this.txtBarcodeSearch.TabIndex = 12;
             this.txtBarcodeSearch.TextChanged += new System.EventHandler(this.TxtBarcodeSearch_TextChanged);
+            this.txtBarcodeSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBarcodeSearch_KeyDown);
             // 
             // label7
             // 
@@ -384,6 +385,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "SaleMainPage";
             this.Size = new System.Drawing.Size(902, 538);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.SaleMainPage_PreviewKeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

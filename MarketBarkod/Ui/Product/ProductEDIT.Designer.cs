@@ -320,6 +320,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ProductEDIT";
             this.Size = new System.Drawing.Size(1131, 314);
+            this.Load += new System.EventHandler(this.ProductEDIT_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview1)).EndInit();

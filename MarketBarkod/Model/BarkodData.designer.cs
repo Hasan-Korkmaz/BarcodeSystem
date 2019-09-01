@@ -63,7 +63,7 @@ namespace MarketBarkod.Model
     #endregion
 		
 		public BarkodDataDataContext() : 
-				base(global::MarketBarkod.Properties.Settings.Default.BarcodeSystemConnectionString, mappingSource)
+				base(global::MarketBarkod.Properties.Settings.Default.Local, mappingSource)
 		{
 			OnCreated();
 		}

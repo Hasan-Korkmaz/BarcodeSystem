@@ -17,6 +17,7 @@ namespace MarketBarkod.Ui.Product
         {
             InitializeComponent();
             PCC.KategoriListesi(cmbProductCategory);
+            txtProductBarcode.Focus();
         }
         ProductConnectComponent PCC = new ProductConnectComponent();
         private void BtnProductADD_Click(object sender, EventArgs e)
@@ -27,10 +28,14 @@ namespace MarketBarkod.Ui.Product
 
         private void TxtProductBarcode_TextChanged(object sender, EventArgs e)
         {
-            if (txtProductBarcode.Text.Length == 14)
+            char[] charsToTrim = { '\n', '\r' };
+            if (txtProductBarcode.Text.Contains('\n') || txtProductBarcode.Text.Contains('\r'))
             {
-                txtProductBarcode.Clear();
+                txtProductBarcode.Text = txtProductBarcode.Text.TrimEnd(charsToTrim);
+                
             }
         }
+
+        
     }
 }
